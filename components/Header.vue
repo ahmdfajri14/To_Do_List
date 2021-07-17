@@ -12,7 +12,7 @@
             {{ userName }}
           </p>
         </v-col>
-        <v-col>
+        <v-col v-if="numberOfFinish">
           <div
             style="
               width: 59px;
@@ -46,7 +46,7 @@
           </div>
         </v-col>
       </v-row>
-      <v-row no-gutters style="margin-left: 10px">
+      <v-row v-if="numberOfList" no-gutters style="margin-left: 10px">
         <v-col style="flex-grow: 0.15 !important">
           <div
             style="
@@ -72,14 +72,17 @@
       </v-row>
     </div>
     <v-row v-else no-gutters>
-      <v-col style="flex-grow: 0.4 !important">
+      <v-col style="flex-grow: 0.3 !important">
         <v-btn color="#FA8072" width="20px" depressed tile @click="handleBack">
           <v-icon width="120px" dark> mdi-menu-left </v-icon>
         </v-btn>
       </v-col>
       <v-col>
-        <p class="text-justify" style="padding-top: 10px">
-          {{ backTitle }}
+        <p
+          class="text-justify"
+          style="padding-top: 10px; font-size: 12px; font-weight: bold"
+        >
+          {{ title }}
         </p>
       </v-col>
     </v-row>
@@ -102,7 +105,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    backTitle: {
+    title: {
       type: String,
       default: "Back",
     },
