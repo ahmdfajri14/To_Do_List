@@ -110,6 +110,7 @@ export default {
       let data = {
         title: this.titleLabel,
         list: this.tasks,
+        date: this.dateNow,
       };
       this.$store.commit("task/setAddTask", data);
       this.$router.push("/");

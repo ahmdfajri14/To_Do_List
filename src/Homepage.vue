@@ -14,11 +14,13 @@
       />
       <p style="font-size: 22px; color: #0045ff; text-align: center">No Task</p>
     </div>
-    <FloatingButton />
+    <CardList :dataList="dataList" v-else />
+    <FloatingButton :numberOfList="dataList.length" />
   </v-container>
 </template>
 <script>
 import Header from "@/components/Header.vue";
+import CardList from "@/components/CardList.vue";
 import FloatingButton from "@/components/FloatingButton.vue";
 import moment from "moment";
 
@@ -26,9 +28,12 @@ export default {
   name: "HomePage",
   components: {
     Header,
+    CardList,
     FloatingButton,
   },
-
+  created() {
+    console.log(this.dataList, "dataList");
+  },
   computed: {
     dataList() {
       return this.$store.getters["task/getListTask"] || null;

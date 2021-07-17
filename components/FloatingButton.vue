@@ -1,6 +1,6 @@
 <template>
   <div class="button-floating">
-    <v-row no-gutters justify="space-between">
+    <v-row v-if="numberOfList" no-gutters justify="space-between">
       <v-col>
         <v-btn
           style="border-radius: 10px; font-weight: bold"
@@ -25,11 +25,29 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-btn
+      v-else
+      fab
+      color="cyan accent-2"
+      absolute
+      right
+      top
+      style="margin-right: 40px; background: #ff8585; color: white"
+      @click="addList"
+    >
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
   </div>
 </template>
 <script>
 export default {
   name: "FloatingButton",
+  props: {
+    numberOfList: {
+      type: Number,
+      default: 2,
+    },
+  },
   methods: {
     addList() {
       this.$router.push("add");
