@@ -1,18 +1,18 @@
 <template>
   <v-container>
-    <Header title="Create New To-do List" />
-    <ToDo add />
+    <Header title="To-do List Details" />
+    <CardDetail />
   </v-container>
 </template>
 <script>
 import Header from "@/components/Header.vue";
-import ToDo from "@/components/ToDo.vue";
+import CardDetail from "@/components/CardDetail.vue";
+
 export default {
-  name: "AddList",
+  name: "DetailPage",
   components: {
     Header,
-    ToDo,
+    CardDetail,
   },
-  computed: {},
 };
 </script>

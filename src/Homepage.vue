@@ -31,9 +31,6 @@ export default {
     CardList,
     FloatingButton,
   },
-  created() {
-    console.log(this.dataList, "dataList");
-  },
   computed: {
     dataList() {
       return this.$store.getters["task/getListTask"] || null;

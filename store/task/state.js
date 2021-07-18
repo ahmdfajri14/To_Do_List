@@ -1,3 +1,4 @@
 export default () => ({
-listTask: []
+listTask: [],
+detailTask: {}
 })

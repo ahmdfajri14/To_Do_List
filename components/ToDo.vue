@@ -108,6 +108,7 @@ export default {
     },
     saveTask() {
       let data = {
+        id: Date.now(),
         title: this.titleLabel,
         list: this.tasks,
         date: this.dateNow,
