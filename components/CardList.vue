@@ -7,7 +7,6 @@
         :key="data.id"
         color="#F4FFB0"
         width="296px"
-        height="288px"
         style="margin: 20px; border-color: black"
         outlined
       >
@@ -26,6 +25,32 @@
               </v-icon>
             </v-col>
           </v-row>
+          <v-col cols="12" align="start" style="padding-bottom: 0px">
+            <v-progress-linear
+              style="background: #9b9b9b"
+              color="#a0ffc1"
+              :value="
+                (data.list.filter((x, i) => {
+                  return x.value;
+                }).length /
+                  data.list.length) *
+                100
+              "
+            />
+          </v-col>
+          <v-col
+            class="value-progress"
+            align="start"
+            cols="12"
+            style="padding-top: 10px"
+          >
+            {{
+              data.list.filter((x, i) => {
+                return x.value;
+              }).length
+            }}
+            /{{ data.list.length }} Task Completed
+          </v-col>
           <v-list flat style="background: #f4ffb0" class="pt-0">
             <div v-for="task in data.list" :key="task.id">
               <v-list-item>

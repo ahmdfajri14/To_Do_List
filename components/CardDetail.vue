@@ -4,6 +4,32 @@
       <p style="font-weight: bold; font-size: 24px">
         {{ updateData.title }}
       </p>
+      <v-col cols="12" align="start" style="padding-bottom: 0px">
+        <v-progress-linear
+          style="background: #9b9b9b"
+          color="#a0ffc1"
+          :value="
+            (dataDetail.list.filter((x, i) => {
+              return x.value;
+            }).length /
+              dataDetail.list.length) *
+            100
+          "
+        />
+      </v-col>
+      <v-col
+        class="value-progress"
+        align="start"
+        cols="12"
+        style="padding-top: 10px"
+      >
+        {{
+          dataDetail.list.filter((x, i) => {
+            return x.value;
+          }).length
+        }}
+        /{{ dataDetail.list.length }} Task Completed
+      </v-col>
     </div>
     <v-card
       color="#F4FFB0"
@@ -75,7 +101,7 @@ export default {
       updateData: {},
     };
   },
-  created() {
+  mounted() {
     this.updateData = this.dataDetail;
   },
   computed: {
